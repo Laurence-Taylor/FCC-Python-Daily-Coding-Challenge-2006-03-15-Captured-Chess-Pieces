@@ -1,9 +1,22 @@
 def get_captured_value(pieces):
-    set_chess_pieces = set('PPPPPPPPRRKKBBQK')
-    actual_pieces = set(pieces)
-    accent_pieces = set_chess_pieces - actual_pieces
-    print(accent_pieces)
-    return pieces
+    # Create a list of all possible pieces of the chess
+    list_chess_pieces = list('PPPPPPPPRRNNBBQK')
+    # Remove the pieces in posesion to determinate tha ones lacked 
+    for piece in pieces:
+        list_chess_pieces.remove(piece)
+    # if lacked the king, then checkmate
+    if 'K' in list_chess_pieces:
+        return "Checkmate"
+    # init count variable
+    points = 0
+    # count points the adversary has
+    for piece in list_chess_pieces:
+        if piece == 'P': points += 1
+        elif piece == 'R': points += 5
+        elif piece == 'N' or piece == 'B': points += 3
+        elif piece == 'Q': points += 9
+    # return points
+    return points
 
 if __name__ == '__main__':
     print(get_captured_value(["P", "P", "P", "P", "P", "P", "R", "R", "N", "B", "Q", "K"]))
@@ -18,4 +31,3 @@ if __name__ == '__main__':
     print('-----')
     print(get_captured_value(["N", "P", "P", "B", "K", "P", "Q", "N", "P", "P", "R", "R", "P", "P", "P", "B"]))
     print('-----')
-    print(get_captured_value(["N", "P", "P", "B", "P", "R", "Q", "P", "P", "P", "B"]))
