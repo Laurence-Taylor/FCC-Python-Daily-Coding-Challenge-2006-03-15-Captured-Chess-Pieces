@@ -4,7 +4,7 @@ Given an array of strings representing chess pieces you still have on the board,
 
 ```
 In chess, you start with 16 pieces:
-Piece 	Abbreviation 	Quantity 	Value
+Piece 	Abbreviation 	Quantity 	  Value
 Pawn 	    "P" 	        8 	        1
 Rook 	    "R" 	        2 	        5
 Knight 	    "N" 	        2 	        3
